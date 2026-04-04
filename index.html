@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodrigo Gomes | Data Science & AI Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-ai: #00d2ff;
+            --accent-green: #2ecc71;
+            --border-color: #923661;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* --- Hero Card (Flyer Animado Integrado) --- */
+        .card-hero {
+            grid-column: span 4;
+            background: radial-gradient(circle at top left, #1c2d3d, #0d1117);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
+        }
+
+        .hero-content { flex: 1; }
+        
+        .hero-flyer {
+            flex: 0 0 45%;
+            max-width: 500px;
+            perspective: 1000px;
+        }
+
+        .hero-flyer img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 210, 255, 0.2);
+            border: 1px solid rgba(0, 210, 255, 0.4);
+            animation: floatFlyer 6s ease-in-out infinite, glowPulse 4s infinite;
+        }
+
+        @keyframes floatFlyer {
+            0%, 100% { transform: translateY(0) rotateX(2deg); }
+            50% { transform: translateY(-20px) rotateX(-2deg); }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { border-color: rgba(0, 210, 255, 0.4); box-shadow: 0 20px 50px rgba(0, 210, 255, 0.2); }
+            50% { border-color: var(--accent-ai); box-shadow: 0 20px 60px rgba(0, 210, 255, 0.4); }
+        }
+
+        .hero-text h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
+        .hero-text h1 span { color: var(--accent-ai); }
+
+        .badge {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--accent-ai);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+        }
+
+        /* --- Cards de Projetos --- */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover { border-color: var(--accent-ai); transform: translateY(-8px); box-shadow: 0 15px 45px rgba(0, 210, 255, 0.1); }
+
+        .card-tech-wide { grid-column: span 4; background: #090c10; }
+        .tech-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+        .tech-category h4 { color: var(--accent-ai); margin-bottom: 0.8rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; border: 1px solid var(--border-color); }
+
+        .card-main { grid-column: span 2; border-left: 5px solid var(--accent-ai); }
+        .desc-detalhada { font-size: 0.9rem; color: var(--text-secondary); margin: 0.8rem 0 1.2rem 0; line-height: 1.5; }
+        
+        .link-projeto { color: var(--accent-ai); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; margin-top: auto; }
+
+        .btn-wa-innovative {
+            background: var(--accent-green);
+            color: #0d1117;
+            padding: 1rem 2rem;
+            border-radius: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            animation: pulse-green 2s infinite;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); }
+        }
+
+        /* --- Agente GomesAI (Restaurado) --- */
+        #ai-agent-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        #chat-window { width: 330px; height: 500px; background: #161b22; border: 1px solid var(--accent-ai); border-radius: 20px; margin-bottom: 15px; display: none; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.5); overflow: hidden; }
+        #chat-header { background: var(--accent-ai); color: #0d1117; padding: 15px; font-weight: 800; display: flex; justify-content: space-between; font-size: 0.9rem; }
+        #chat-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #0d1117; scroll-behavior: smooth; }
+        .msg { padding: 12px 16px; border-radius: 15px; max-width: 90%; font-size: 0.88rem; line-height: 1.5; }
+        .msg-ai { background: #1c2d3d; color: white; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #30363d; }
+        .msg-user { background: var(--accent-ai); color: #0d1117; align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 700; }
+        #chat-input-area { padding: 15px; background: #161b22; display: flex; gap: 8px; border-top: 1px solid var(--border-color); }
+        #chat-input-area input { flex: 1; background: #0d1117; border: 1px solid var(--border-color); padding: 10px; border-radius: 10px; color: white; outline: none; }
+        #chat-trigger { width: 70px; height: 70px; background: var(--accent-ai); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 32px; box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4); }
+
+ /* ==========================================================
+   AJUSTE RESPONSIVO PARA CELULAR (RODRIGO GOMES)
+   ========================================================== */
+@media (max-width: 768px) {
+    /* 1. Ajuste Geral do Corpo */
+    body {
+        padding: 10px; /* Reduz o preenchimento nas bordas da tela */
+    }
+
+    /* 2. Empilhar as Seções (Header e Conteúdo Principal) */
+    .container {
+        grid-template-columns: 1fr !important; /* Força 1 coluna */
+        gap: 2rem !important;
+    }
+
+    /* 3. Ajuste do Header (Nome e Foto) */
+    header {
+        grid-column: span 1 !important; /* Ocupa 1 coluna */
+        height: auto !important; /* Altura automática */
+        padding: 2rem 1rem !important;
+        position: relative !important; /* Tira o fixo, se houver */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    header h1 {
+        font-size: 2.5rem !important; /* Diminui o nome Rodrigo Gomes */
+    }
+
+    /* 4. Ajuste da Seção "Ecossistema" e "SaaS" */
+    #ecossistema-container, 
+    .secao-stacks {
+        grid-template-columns: 1fr !important; /* Empilha as 4 colunas */
+        gap: 1.5rem !important;
+    }
+
+    .secao-stacks div {
+        grid-column: span 1 !important; /* Cada card ocupa a largura toda */
+    }
+
+    /* 5. Ajuste do Footer (WhatsApp) */
+    footer {
+        grid-column: span 1 !important; /* Ocupa 1 coluna */
+        padding: 2rem 1rem !important;
+        text-align: center;
+    }
+
+    footer h2 {
+        font-size: 1.8rem !important; /* Título menor no celular */
+    }
+
+    /* 6. Ajuste dos Botões (WhatsApp/Consultoria) */
+    .btn-wa-innovative, 
+    .btn-consultoria {
+        width: 100% !important; /* Botão ocupa toda a largura */
+        max-width: 300px; /* Mas não fica gigante */
+        margin: 0 auto; /* Centraliza */
+        font-size: 1.1rem !important;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <!-- HEADER HERO -->
+        <header class="card-hero">
+            <div class="hero-content">
+                <span class="badge">🤖 Data Science & AI Specialist</span>
+                <div class="hero-text">
+                    <h1>RODRIGO GOMES. <span>Arquitetando Dados.</span></h1>
+                    <p class="text-secondary">Pós-graduando em Ciência de Dados e IA pela Uninter. Especializado no desenvolvimento de Agentes Inteligentes e análise massiva de dados para automação de decisões e otimização de performance.</p>
+                </div>
+                <div style="margin-top: 2.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
+                    <a href="https://wa.me/5511983179592" class="btn-wa-innovative pulse">Iniciar Consultoria ⚡</a>
+                    <a href="https://github.com/rlgomes92" target="_blank" style="text-decoration: none; color: white; display: flex; align-items: center; gap: 8px; font-weight: 600;">
+                        <i class="fab fa-github" style="font-size: 1.5rem;"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/rlgomes2015" target="_blank" style="text-decoration: none; color: white; display: flex; align-items: center; gap: 8px; font-weight: 600;">
+                        <i class="fab fa-linkedin" style="font-size: 1.5rem; color: #0077b5;"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="hero-flyer">
+                <img src="flyer.png" alt="Flyer Rodrigo Gomes AI Specialist" loading="lazy">
+            </div>
+        </header>
+
+        <!-- TECH STACK -->
+        <section class="card card-tech-wide">
+            <h3>Ecossistema de Desenvolvimento 🛠️</h3>
+            <div class="tech-container">
+                <div class="tech-category">
+                    <h4>AI & Analytics 🧠</h4>
+                    <div class="tech-tags">
+                        <span class="tag">🐍 Python</span><span class="tag">🤖 TensorFlow</span><span class="tag">📊 Pandas</span><span class="tag">📈 SciPy</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4>Software Architecture ⚡</h4>
+                    <div class="tech-tags">
+                        <span class="tag">🔥 Flask</span><span class="tag">🔵 Flet</span><span class="tag">🟡 JS (ES6+)</span><span class="tag">📱 Mobile First</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4>Data & Cloud ☁️</h4>
+                    <div class="tech-tags">
+                        <span class="tag">🗄️ SQL/NoSQL</span><span class="tag">🚀 Vercel</span><span class="tag">🐙 GitHub</span><span class="tag">🐳 Docker</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h4>Modern Stack 🧪</h4>
+                    <div class="tech-tags">
+                        <span class="tag">✨ AI-Assisted Dev</span><span class="tag">🎨 CSS3/HTML5</span><span class="tag">🔍 SEO Data</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section class="card card-main">
+            <div>
+                <span style="font-size: 0.7rem; font-weight: bold; color: var(--accent-ai);">SAAS & AUTOMATION</span>
+                <h2 style="margin: 0.5rem 0;">Voe F5 🚀</h2>
+                <p class="desc-detalhada">Ecossistema SaaS de alta performance projetado para automação de fluxos críticos. Utiliza integração de APIs para otimização operacional e escalabilidade de processos empresariais.</p>
+            </div>
+            <a href="https://rlgomes92.github.io/voef5/" target="_blank" class="link-projeto">Explorar Tecnologia SaaS →</a>
+        </section>
+
+        <section class="card card-main">
+            <div>
+                <span style="font-size: 0.7rem; font-weight: bold; color: var(--accent-ai);">FINANCE & BI</span>
+                <h2 style="margin: 0.5rem 0;">FluxoFin 💰</h2>
+                <p class="desc-detalhada">Engenharia de dados aplicada às finanças pessoais. Dashboard interativo que transforma dados brutos em inteligência financeira preditiva com foco em visualização de dados (BI).</p>
+            </div>
+            <a href="https://app-fluxofin.vercel.app" target="_blank" class="link-projeto">Analisar Dados Financeiros →</a>
+        </section>
+
+        <section class="card">
+            <div>
+                <h3>DaPaz Confeitaria 🎂</h3>
+                <p class="desc-detalhada">Gestão de pedidos automatizada com interface UX fluida, integrando a escolha do cliente diretamente ao fluxo de produção e atendimento digital via WhatsApp.</p>
+            </div>
+            <a href="https://dapaz-confeitaria.vercel.app" target="_blank" class="link-projeto">Ver Solução →</a>
+        </section>
+
+        <section class="card">
+            <div>
+                <h3>Premium Store UX 📱</h3>
+                <p class="desc-detalhada">Interface de Alta Conversão para iPhones. Um estudo profundo de User Experience aplicado ao varejo de luxo, com foco em performance e design responsivo premium.</p>
+            </div>
+            <a href="https://rlgomes92.github.io/Iphone/" target="_blank" class="link-projeto">Ver Experiência UX →</a>
+        </section>
+
+        <section class="card">
+            <div>
+                <h3>Interclasse 🏆</h3>
+                <p class="desc-detalhada">Engenharia de dados esportivos em tempo real. Hub centralizado para estatísticas e acompanhamento de torneios com processamento dinâmico de informações.</p>
+            </div>
+            <a href="https://rlgomes92.github.io/Interclasse-/" target="_blank" class="link-projeto">Acompanhar Placar →</a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="card" style="grid-column: span 4; flex-direction: column; align-items: center; text-align: center; background: radial-gradient(circle at center, #1c2d3d, #0d1117); padding: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">O mundo da tecnologia não espera. 🌐</h2>
+            <p class="text-secondary" style="max-width: 600px; margin-bottom: 2rem;">Seu sonho merece a melhor engenharia. Vamos unir sua visão à minha experiência em IA para realizar seu projeto agora.</p>
+            <a href="https://wa.me/5511983179592" class="btn-wa-innovative">Realizar meu sonho com tecnologia agora 🚀</a>
+        </footer>
+    </main>
+
+    <!-- AGENTE GOMESAI RESTAURADO -->
+    <div id="ai-agent-container">
+        <div id="chat-window">
+            <div id="chat-header"><span>🤖 GomesAI - Seu Parceiro de Projetos</span><span onclick="toggleChat()" style="cursor:pointer">✕</span></div>
+            <div id="chat-messages">
+                <div class="msg msg-ai">Olá! Sou o assistente do Rodrigo. Estou aqui para te ajudar a tirar o seu sonho do papel. Qual projeto você quer começar hoje? ✨</div>
+            </div>
+            <div id="chat-input-area">
+                <input type="text" id="user-input" placeholder="Diga sua ideia..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()" style="background: var(--accent-ai); border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer;">🚀</button>
+            </div>
+        </div>
+        <div id="chat-trigger" onclick="toggleChat()">🤖</div>
+    </div>
+
+    <script>
+        let etapaConversa = 0; 
+        let projetoCliente = "";
+
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const messages = document.getElementById('chat-messages');
+            if (input.value.trim() === "") return;
+
+            const userText = input.value;
+            const userDiv = document.createElement('div');
+            userDiv.className = 'msg msg-user';
+            userDiv.innerText = userText;
+            messages.appendChild(userDiv);
+            input.value = "";
+
+            setTimeout(() => {
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'msg msg-ai';
+                const lower = userText.toLowerCase().trim();
+
+                if (lower.match(/\b(ola|olá|oi|bom dia|boa tarde|boa noite|tudo bem|opa)\b/) && etapaConversa === 0) {
+                    aiDiv.innerText = "Olá! É um prazer. Dar o primeiro passo é a parte mais corajosa de qualquer jornada digital. Me conte, qual ideia você quer tirar do papel hoje?";
+                    messages.appendChild(aiDiv);
+                    messages.scrollTop = messages.scrollHeight;
+                    return;
+                }
+
+                if (etapaConversa === 0) {
+                    projetoCliente = userText;
+                    aiDiv.innerText = "Entendido! Projetar '" + projetoCliente + "' tem um potencial enorme. O Rodrigo utiliza uma estrutura técnica de IA e Dados para garantir que o seu sonho saia do papel com total segurança e performance. Gostaria de ver como sua ideia pode ganhar essa estrutura robusta?";
+                    etapaConversa = 1;
+                } else if (etapaConversa === 1) {
+                    aiDiv.innerText = "Excelente decisão! O foco é o primeiro ingrediente do sucesso. O Rodrigo tem experiência real com sistemas inteligentes. Para darmos o próximo passo com prazos para seu " + projetoCliente + ", vamos falar no WhatsApp agora? 🚀";
+                    etapaConversa = 2;
+                } else {
+                    aiDiv.innerText = "O Rodrigo já está aguardando para analisar seu projeto. Clique no botão de WhatsApp ou no link 'Iniciar Consultoria' para começarmos agora! 😊";
+                }
+
+                messages.appendChild(aiDiv);
+                messages.scrollTop = messages.scrollHeight;
+            }, 800);
+        }
+
+        function handleKeyPress(e) { if (e.key === 'Enter') sendMessage(); }
+    </script>
+</body>
+</html>
