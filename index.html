@@ -146,66 +146,51 @@
         .msg-ai { background: #1c2d3d; color: white; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #30363d; }
         .msg-user { background: var(--accent-ai); color: #0d1117; align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 700; }
         #chat-input-area { padding: 15px; background: #161b22; display: flex; gap: 8px; border-top: 1px solid var(--border-color); }
-        #chat-input-area input { flex: 1; background: #0d1117; border: 1px solid var(--border-color); padding: 10px; border-radius: 10px; color: white; outline: none; }
+        #chat-input-area input { flex: 1; background: #465366; border: 1px solid var(--border-color); padding: 10px; border-radius: 10px; color: white; outline: none; }
         #chat-trigger { width: 70px; height: 70px; background: var(--accent-ai); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 32px; box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4); }
 
  /* ==========================================================
    AJUSTE RESPONSIVO PARA CELULAR (RODRIGO GOMES)
    ========================================================== */
 @media (max-width: 768px) {
-    /* 1. Ajuste Geral do Corpo */
-    body {
-        padding: 10px; /* Reduz o preenchimento nas bordas da tela */
+    /* 1. Aumentar a Imagem Flutuante (Robô/IA) */
+    .floating-ai-icon, 
+    .fixed-action-btn img,
+    [style*="position: fixed"] img { 
+        width: 80px !important; /* Aumentamos o tamanho */
+        height: 80px !important;
+        bottom: 20px !important;
+        right: 20px !important;
     }
 
-    /* 2. Empilhar as Seções (Header e Conteúdo Principal) */
-    .container {
-        grid-template-columns: 1fr !important; /* Força 1 coluna */
-        gap: 2rem !important;
+    /* 2. Ajustar Projetos (Dapaz, Interclasse, etc) para Horizontal */
+    /* Vamos remover o espaço vertical excessivo e alinhar como o Fluxofin */
+    .secao-projetos-container,
+    .projects-grid {
+        display: flex !important;
+        flex-direction: row !important; /* Força horizontal */
+        overflow-x: auto !important; /* Permite deslizar para o lado se não couber */
+        gap: 15px !important;
+        padding: 10px 5px !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* 3. Ajuste do Header (Nome e Foto) */
-    header {
-        grid-column: span 1 !important; /* Ocupa 1 coluna */
-        height: auto !important; /* Altura automática */
-        padding: 2rem 1rem !important;
-        position: relative !important; /* Tira o fixo, se houver */
-        text-align: center; /* Centraliza o texto */
+    /* Ajuste dos Cards de Projeto Individuais */
+    .card-projeto, 
+    .project-card {
+        flex: 0 0 85% !important; /* Cada card ocupa 85% da largura da tela */
+        scroll-snap-align: start;
+        margin-bottom: 0 !important; /* Remove o espaço grande embaixo */
+        height: auto !important;
+        min-height: 350px; /* Mantém uma altura padrão elegante */
     }
 
-    header h1 {
-        font-size: 2.5rem !important; /* Diminui o nome Rodrigo Gomes */
-    }
-
-    /* 4. Ajuste da Seção "Ecossistema" e "SaaS" */
-    #ecossistema-container, 
-    .secao-stacks {
-        grid-template-columns: 1fr !important; /* Empilha as 4 colunas */
-        gap: 1.5rem !important;
-    }
-
-    .secao-stacks div {
-        grid-column: span 1 !important; /* Cada card ocupa a largura toda */
-    }
-
-    /* 5. Ajuste do Footer (WhatsApp) */
-    footer {
-        grid-column: span 1 !important; /* Ocupa 1 coluna */
-        padding: 2rem 1rem !important;
-        text-align: center;
-    }
-
-    footer h2 {
-        font-size: 1.8rem !important; /* Título menor no celular */
-    }
-
-    /* 6. Ajuste dos Botões (WhatsApp/Consultoria) */
-    .btn-wa-innovative, 
-    .btn-consultoria {
-        width: 100% !important; /* Botão ocupa toda a largura */
-        max-width: 300px; /* Mas não fica gigante */
-        margin: 0 auto; /* Centraliza */
-        font-size: 1.1rem !important;
+    /* Ajuste de espaçamento nos textos dos projetos */
+    .card-projeto h3, 
+    .card-projeto p {
+        margin: 5px 0 !important;
+        line-height: 1.3 !important;
     }
 }
     </style>
