@@ -83,9 +83,17 @@ O projeto foi estruturado para hospedagem estática. O workflow `static.yml` pod
 - Font Awesome
 - Inter
 
+## 🚀 Projetos em destaque
+
+- [Voe F5 Tour](https://github.com/RLGOMES92/voef5) — landing page comercial responsiva para turismo.
+- [DaPaz Confeitaria](https://github.com/RLGOMES92/confeitaria) — vitrine digital orientada a pedidos pelo WhatsApp.
+- [NB Diogo](https://github.com/RLGOMES92/Nb) — gestão de clientes, propostas e orçamentos.
+- [FinControl](https://github.com/RLGOMES92/fincontrol) — PWA de gestão financeira e dashboard.
+- [Portfólio](https://rlgomes92.github.io/portifolio/) — apresentação profissional e catálogo de projetos.
+
 ## 📌 Aplicação comercial
 
-Este projeto demonstra a capacidade de construir **sites institucionais e portfólios profissionais**, uma base reutilizável para empresas que precisam apresentar marca, serviços e diferenciais na web.
+Este projeto demonstra a capacidade de construir **sites institucionais, landing pages e experiências digitais orientadas a negócio**, com foco em clareza, responsividade e geração de oportunidades.
 
 ---
 
